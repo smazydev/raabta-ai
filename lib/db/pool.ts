@@ -52,6 +52,7 @@ export function getPool(): Pool {
       max: Number(process.env.PG_POOL_MAX ?? 20),
       idleTimeoutMillis: 30_000,
       connectionTimeoutMillis: 10_000,
+      ...(relaxedTlsEnabled() ? { ssl: { rejectUnauthorized: false } } : {}),
     });
   }
   return globalThis.__raabtaPgPool;

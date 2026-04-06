@@ -1,10 +1,8 @@
 import type { NextConfig } from "next";
-import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Helps `pg` on Vercel serverless (avoid over-bundling the native driver graph).
+  serverExternalPackages: ["pg"],
 };
 
 export default nextConfig;
-
-initOpenNextCloudflareForDev();

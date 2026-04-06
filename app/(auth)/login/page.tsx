@@ -5,9 +5,18 @@ import { LoginForm } from "./login-form";
 const SESSION_INVALID_MSG =
   "Your browser still had a session for an old user id (typical after wiping the database or re-seeding, when new rows get new UUIDs). That session was cleared — sign in again. If you still see this after signing in, confirm DATABASE_URL matches the DB you seeded and run npm run db:seed.";
 
+const CONFIG_MSG =
+  "Server configuration is incomplete. Set DATABASE_URL (Postgres URI; for Supabase serverless often use the transaction pooler on port 6543) and SESSION_SECRET (≥16 characters) in your host’s environment (e.g. Vercel → Project → Settings → Environment Variables), then redeploy.";
+
+const DB_UNAVAILABLE_MSG =
+  "Could not reach PostgreSQL. Confirm DATABASE_URL is correct, the database allows connections from your host’s region, and TLS settings match your provider. For TLS issues while debugging, set PG_SSL_REJECT_UNAUTHORIZED=false in server env only.";
+
 const LOGIN_ERROR_HINTS: Record<string, string> = {
   session_invalid: SESSION_INVALID_MSG,
   no_profile: SESSION_INVALID_MSG,
+  configuration: CONFIG_MSG,
+  db_unavailable: DB_UNAVAILABLE_MSG,
+  server_error: "Something went wrong while signing in. Try again or contact support.",
 };
 
 type Props = { searchParams: Promise<{ error?: string }> };
