@@ -1,0 +1,17 @@
+# Local backup of broken .git (never commit)
+.git.corrupt.bak/
+
+node_modules/
+.next/
+out/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+*.tsbuildinfo
+.env*
+!.env.example
+
+# Drizzle Kit introspect / migrate output (DDL source of truth is supabase/migrations/)
+/drizzle/
