@@ -1,0 +1,14 @@
+# Cloudflare Workers — Next.js via OpenNext (output: .open-next/)
+# Worker `name` and WORKER_SELF_REFERENCE `service` must match your deployed script name.
+name = "raabta-ai"
+main = ".open-next/worker.js"
+compatibility_date = "2025-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
+
+[[services]]
+binding = "WORKER_SELF_REFERENCE"
+service = "raabta-ai"
