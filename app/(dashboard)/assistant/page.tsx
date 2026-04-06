@@ -65,7 +65,7 @@ export default async function AssistantPage({ searchParams }: { searchParams: Se
     artifact_markdown: string | null;
   };
 
-  let initialLines: {
+  const initialLines: {
     id: string;
     role: "user" | "assistant";
     content: string;

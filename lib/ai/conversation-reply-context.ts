@@ -73,7 +73,8 @@ export async function loadConversationReplyContext(
     tenantId,
     agentCtx.agentModelPlaceholder
   );
-  const { agentModelPlaceholder: _p, ...promptOnly } = agentCtx;
+  const { agentModelPlaceholder, ...promptOnly } = agentCtx;
+  void agentModelPlaceholder;
 
   return {
     customerName,

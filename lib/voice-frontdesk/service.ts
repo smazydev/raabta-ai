@@ -254,7 +254,7 @@ export async function processFrontdeskTurn(input: {
       : utterance;
   const transcriptTail = input.recentVoiceTranscript?.trim().slice(-900) ?? "";
   const policySearchContext = `${utterance}\n${transcriptTail}`.trim();
-  let knowledgeQuery = enrichKnowledgeSearchQuery(knowledgeQueryBase, policySearchContext);
+  const knowledgeQuery = enrichKnowledgeSearchQuery(knowledgeQueryBase, policySearchContext);
   const updatedCapture = updateCaptureFromUtterance(
     {
       ...snapshot.capture,
