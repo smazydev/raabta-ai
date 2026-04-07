@@ -88,6 +88,15 @@ export function AgentDetailShell({
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
+          {(agentMeta.kind === "voice" || agentMeta.kind === "both") && agentMeta.status !== "archived" ? (
+            <Link
+              href={`/assistant?new=true&agent=${encodeURIComponent(agentMeta.id)}`}
+              className={cn(buttonVariants({ variant: "default" }), "no-underline")}
+            >
+              <MessageSquare className="mr-2 h-4 w-4" />
+              Open in assistant (voice)
+            </Link>
+          ) : null}
           <Link
             href="/conversations"
             className={cn(buttonVariants({ variant: "secondary" }), "no-underline")}

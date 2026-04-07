@@ -76,6 +76,12 @@ export function AgentDefinitionFields({
                 <option value="voice">Voice</option>
                 <option value="both">Chat &amp; voice</option>
               </select>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Create multiple agents (e.g. HR voice, Ops voice). <strong className="font-medium text-foreground">Voice</strong>{" "}
+                and <strong className="font-medium text-foreground">Chat &amp; voice</strong> unlock the Workplace assistant
+                microphone with OpenAI Realtime, server tools, and the same knowledge bases / articles you attach below.
+                Urdu and English are always supported; Sindhi/Pashto follow deployment flags.
+              </p>
             </div>
             <div>
               <label className="text-sm font-medium" htmlFor="status">
